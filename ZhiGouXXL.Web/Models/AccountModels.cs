@@ -29,7 +29,7 @@ namespace ZhiGouXXL.Web.Models {
 
 	public class RegisterExternalLoginModel {
 		[Required]
-		[Display(Name = "User name")]
+		[Display(Name = GlobalConstants.UserName)]
 		public string UserName { get; set; }
 
 		public string ExternalLoginData { get; set; }
@@ -38,32 +38,32 @@ namespace ZhiGouXXL.Web.Models {
 	public class LocalPasswordModel {
 		[Required]
 		[DataType(DataType.Password)]
-		[Display(Name = "Current password")]
+		[Display(Name = GlobalConstants.CurrentPassword)]
 		public string OldPassword { get; set; }
 
 		[Required]
 		[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
 		[DataType(DataType.Password)]
-		[Display(Name = "New password")]
+		[Display(Name = GlobalConstants.NewPassword)]
 		public string NewPassword { get; set; }
 
 		[DataType(DataType.Password)]
-		[Display(Name = "Confirm new password")]
+		[Display(Name = GlobalConstants.ConfirmNewPassword)]
 		[Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
 		public string ConfirmPassword { get; set; }
 	}
 
 	public class LoginModel {
 		[Required]
-		[Display(Name = "User name")]
+		[Display(Name = GlobalConstants.UserName)]
 		public string UserName { get; set; }
 
 		[Required]
 		[DataType(DataType.Password)]
-		[Display(Name = "Password")]
+		[Display(Name = GlobalConstants.Password)]
 		public string Password { get; set; }
 
-		[Display(Name = "Remember me?")]
+		[Display(Name = GlobalConstants.RememberMe)]
 		public bool RememberMe { get; set; }
 	}
 
@@ -83,11 +83,11 @@ namespace ZhiGouXXL.Web.Models {
 		[Compare("Password", ErrorMessage = "确认密码和原密码不相同.")]
 		public string ConfirmPassword { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "请填写您的收件地址.")]
 		[Display(Name = GlobalConstants.Address)]
 		public string Address { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "请填写您的收件电话.")]
 		[Display(Name = GlobalConstants.Mobile)]
 		public string Mobile { get; set; }
 	}
